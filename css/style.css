@@ -159,36 +159,65 @@ overflow-y: scroll;
 }
 .chat .send{
     width: 95%;
-    height: 30px;
+    height: 40px;
     display: flex;
     margin-top: 20px;
     justify-content: flex-end;
 }
-.chat .send span{
+.chat .data-chat{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.chat .data-chat span{
+    padding: 10px;
+    background-color: #E1F3FB;
+    border-radius: 10px;
+}
+
+
+.chat .send .box-message{
+    display: flex;
+    align-items: center;
     height: 100%;
-    line-height: 30px;
    padding: 0 60px 0 10px;
     background-color:#DCF8C6;
     border-radius: 2px;
     font-size: 18px;
+    position: relative;
+}
+.chat .send .box-message .ora{
+   position: absolute;
+    bottom: 0;
+    right: 5px;
+    font-size: 14px;
+    color: rgb(93, 143, 93);
 }
 .chat .recive{
-
     width: 95%;
-    height: 30px;
+    height: 40px;
     display: flex;
     margin-top: 20px;
     margin-left:30px ;
     justify-content: flex-start;
 }
-.chat .recive span{
+.chat .recive .box-message{
     height: 100%;
-    line-height: 30px;
+    display: flex;
+    align-items: center;
    padding: 0 60px 0 10px;
     background-color:#f0f0f0;
     border-radius: 2px;
     font-size: 18px;
+    position: relative;
 }
+.chat .recive .box-message .ora{
+    position: absolute;
+     bottom: 0;
+     right: 5px;
+     font-size: 14px;
+     color: rgb(93, 143, 93);
+ }
 
 
 
