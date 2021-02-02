@@ -1,59 +1,41 @@
 
 var print = new Vue({
-    el: '.prova',
+    el: '.wrapp',
     data: {
    
-    items:[
+    contacts:[
         {
-            "index":0,
-            "user":"Luca",
-            "email":"luca@gmail.com",
-            "password":"luca",
-            "stato":"on",
-            
+            "nome":"Michele",
+            "img":"img/avatar_1.jpg"
         },
         {
-            "index":1,
-            "user":"Luca",
-            "email":"luca@gmail.com",
-            "password":"luca",
-            "stato":"off"
+            "nome":"Lorenzo",
+            "img":"img/avatar_2.jpg"
         },
         {
-            "index":2,
-            "user":"Licci",
-            "email":"licci@gmail.com",
-            "password":"liccu",
-            "stato":"on"
+            "nome":"Marco",
+            "img":"img/avatar_3.jpg"
         },
         {
-            "index":3,
-            "user":"Lorenzo",
-            "email":"lorenzo@gmail.com",
-            "password":"lore",
-            "stato":"on"
+            "nome":"Luca",
+            "img":"img/avatar_4.jpg"
         },
         {
-            "index":4,
-            "user":"Marta",
-            "email":"lorenzo@gmail.com",
-            "password":"marta",
-            "stato":"off"
+            "nome":"Nicola",
+            "img":"img/avatar_5.jpg"
         },
         {
-            "index":5,
-            "user":"Federico",
-            "email":"federico@gmail.com",
-            "password":"federico",
-            "stato":"on"
+            "nome":"Franco",
+            "img":"img/avatar_6.jpg"
         },
         {
-            "index":6,
-            "user":"Francesco",
-            "email":"francesco@gmail.com",
-            "password":"lore",
-            "stato":"off"
-        }
+            "nome":"Salvatore",
+            "img":"img/avatar_7.jpg"
+        },
+        {
+            "nome":"Federico",
+            "img":"img/avatar_8.jpg"
+        },
     ]
     },
     methods:{

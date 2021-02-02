@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 .background{
-    width: 100%;
     height: 100vh;
     background-color: #E4DCD6;
     z-index: 1;
@@ -15,12 +14,12 @@
 }
 
 .wrapp{
-   position: absolute;
+   position: fixed;
    top:50px;
    left: 50%;
    transform: translateX(-50%);
     width: 80%;
-    height: 700px;
+    height: calc(100vh - 40px);
     min-width: 1000px;
     -webkit-box-shadow: 0px 1px 13px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 1px 13px -2px rgba(0,0,0,0.75);
@@ -156,7 +155,43 @@ box-shadow: 0px 0px 0.52px 0px rgba(0,0,0,0.75);
 .chat{
 height: 79%;
 background-image: url(../img/mine.jpg);
+overflow-y: scroll;
 }
+.chat .send{
+    width: 95%;
+    height: 30px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+.chat .send span{
+    height: 100%;
+    line-height: 30px;
+   padding: 0 60px 0 10px;
+    background-color:#DCF8C6;
+    border-radius: 2px;
+    font-size: 18px;
+}
+.chat .recive{
+
+    width: 95%;
+    height: 30px;
+    display: flex;
+    margin-top: 20px;
+    margin-left:30px ;
+    justify-content: flex-start;
+}
+.chat .recive span{
+    height: 100%;
+    line-height: 30px;
+   padding: 0 60px 0 10px;
+    background-color:#f0f0f0;
+    border-radius: 2px;
+    font-size: 18px;
+}
+
+
+
 .bar-chat{
     min-height: 11%;
     background-color: #EAEAEA;
