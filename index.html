@@ -17,12 +17,11 @@
             <div class="green"></div>
         </div>
         <div class="wrapp">
-           
             <div class="block-left">
                 <div class="header-left">
                     <div class="logo-name">
-                        <img  src="img/avatar_io.jpg" alt="">
-                        <span class="bold m_left10">Nome Utente</span>
+                        <img class="m_left15" src="img/avatar_io.jpg" alt="">
+                     
                     </div>
                     <div class="font-aw">
                         <i class="fas fa-circle-notch"></i>
@@ -31,11 +30,11 @@
                     </div>
                 </div>
                 <div class="notify">
-                    <div class="icon m_right_10">
+                    <div class="icon m_right_25">
                         <i style="color: #8EDAFC;" class="fas fa-bell-slash"></i>
                     </div>
                     <div class="text-notify">
-                        <span class="bold">Ricevi notifiche di nuovi messaggi</span>
+                        <span style="color: #455257;" >Ricevi notifiche di nuovi messaggi</span>
                         <span class="link">Attiva notifiche desktop</span>
                     </div>
                 </div>
@@ -51,20 +50,43 @@
                     
                 </div>
                 <div class="contact">
-                    <div v-for="contact in contacts" class="box">
+                    <div v-for="(contact,index) in contacts" @click="checkcontact(index)" class="box" :class="contact.click">
                         <img class="m_right_15" :src="contact.img" alt="">
-                        <span class="bold">{{contact.nome}}</span>
+                        <div  class="information-contact">
+                            <span>{{contact.nome}}</span>
+                            <!-- <span v-if="lastmessages(contact.messages)==true"  style="color: grey; font-size: 16px;" ><i style="color: grey; font-size: 12px;" class="fas fa-check-double m_right_10"></i>{{lastmessage.text}}</span>
+                            <span v-else  style="color: grey;" >{{lastmessage.text}}</span> -->
+
+                        </div>
+                        
                     </div>
                   
                   
                 </div> 
         </div>
         <div class="block-right">
-                <div class="header-right">
+            <div class="welcome">
+                <div style="color: #A8A8A9;"class="welcome-information">
+                    <div class="welcome-img">
+                        <img src="img/whatsapp_welcome.jpg" >
+                    </div>
+                    <div  class="welcome-text">
+                        <span style="color: #737373; font-weight: 200;" class="font_size_35">Mantieni il telefono connesso</span>
+                        <div class="text-center m_top_10" >WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</div>
+                    </div>
+                    <div class="welcome-footer m_top_50">
+                        <div><i class="fas fa-laptop m_right_10"></i>WhatsApp è disponibile per Windows. <a style="color:#1DC25C; font-weight: bold;" href="https://www.whatsapp.com/download" target="_blank">Scaricala qui</a>.</div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div  class="content">
+                <div v-for="contact in contactCheck" class="header-right">
                     <div class="logo-name">
-                        <img  src="img/avatar_io.jpg" alt="">
+                        <img  :src="contact.img" alt="">
                         <div class="information m_left10">
-                            <span class="bold">Michele</span>
+                            <span class="bold">{{contact.nome}}</span>
                             <span style="color: #979c9e; margin-top:5px ;">Ultimo accesso oggi alle</span>
                         </div>
                        
@@ -75,21 +97,26 @@
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div class="chat">
-                    <div class="data-chat"><span>2 Febbraio 2021</span></div>
-                    <div class="send">
+                <div v-for="contact in contactCheck"  class="chat">
+                    <div class="data-chat"><span>{{contact.data}}</span></div>
+                    <div  v-for="message in contact.messages">
+                        <div :class="message.stato">
+                            <div class="box-message">
+                                <span>{{message.text}}</span>
+                                <span class="ora">{{message.ora}}</span>
+                            </div>
+                                                
+                        </div>
+                    </div>
+                    
+
+                    <!-- <div class="recive">
                         <div class="box-message">
                             <span>adasdasd</span>
                             <span class="ora">10:26</span>
                         </div>
-                        
-                    </div>
-                    <div class="recive">
-                        <div class="box-message">
-                            <span>adasdasd</span>
-                            <span class="ora">10:26</span>
-                        </div>
-                    </div>
+                    </div> -->
+
                 </div>
                 <div class="bar-chat">
                     <div class="tool-chat">
@@ -98,10 +125,12 @@
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
+           
+                
         </div>
     </div>
-        
     
+  </div>  
     
 
 

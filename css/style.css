@@ -6,26 +6,56 @@
 .background{
     height: 100vh;
     background-color: #E4DCD6;
-    z-index: 1;
+ 
 }
 .background .green{
-    height: 150px;
+    height: 127px;
     background-color: #2BA59A;
 }
 
 .wrapp{
+    
    position: fixed;
-   top:50px;
+   top:19px;
    left: 50%;
    transform: translateX(-50%);
-    width: 80%;
+    width: 87%;
     height: calc(100vh - 40px);
     min-width: 1000px;
-    -webkit-box-shadow: 0px 1px 13px -2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 1px 13px -2px rgba(0,0,0,0.75);
-    box-shadow: 0px 1px 13px -2px rgba(0,0,0,0.75);
+  
     margin: auto;
     display: flex;
+    font-family: Segoe UI,Helvetica Neue,Helvetica,Lucida Grande,Arial,Ubuntu,Cantarell,Fira Sans,sans-serif;
+    overflow: hidden;
+}
+.content ,.welcome{
+    height: 100%;
+    display:none;
+    
+}
+.welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8F9FA;
+}
+.welcome .welcome-information{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.welcome .welcome-information .welcome-img img{
+    width: 350px;
+}
+.welcome .welcome-information .welcome-text{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding:30px 0;
+    border-bottom:1px solid #E5E5E6 ;
 }
 .wrapp .block-left{
     width: 30%;
@@ -33,11 +63,11 @@
 }
 .wrapp .block-right{
     width: 70%;
-    background-color: rgb(224, 201, 201);
+    background-color:white;
 }
 .wrapp .block-left .header-left,.header-right{
     width: 100%;
-    min-height: 10%;
+    height: 60px;
     padding: 5px 10px;
     background-color: #EAEAEA;
     display: flex;
@@ -50,14 +80,14 @@
     align-items: center;
 }
 .wrapp .block-left .header-left .logo-name img,.logo-name img{
-   width: 50px;
-   height: 50px;
+   width: 40px;
+   height: 40px;
    border-radius: 50%;
 }
 .wrapp .block-left .header-left .font-aw, .header-right .font-aw {
-    font-size: 20px;
-    color: #B1B1B1;
-    width: 30%;
+    font-size: 16px;
+    color: #919191;
+    width: 34%;
     display: flex;
     justify-content: space-around;
  }
@@ -66,8 +96,8 @@
     transform: scale(1.1);
  }
  .wrapp .block-left .notify {
-    background-color: #8EDAFC;
-    padding: 10px ;
+    background-color: #9DE1FE;
+    padding:  22px ;
     display: flex;
     align-items: center;
  }
@@ -75,7 +105,7 @@
     background-color: white;
     padding: 13px;
     border-radius: 50%;
-    font-size: 15px;
+    font-size: 14px;
  }
  .wrapp .block-left .notify .text-notify {
    display: flex;
@@ -126,16 +156,22 @@ box-shadow: 0px 0px 0.52px 0px rgba(0,0,0,0.75);
   background-color: white;
 }
 .wrapp .block-left .contact   {
-    height: 73.5%;
+   height: calc(100% - 212px);
     overflow-y: scroll;
-    padding-bottom:20px ;
+    padding-bottom: 5px;
+
+    
 }
 .wrapp .block-left .contact .box  {
-    background-color: white;
     display: flex;
-    align-items: flex-start;
     padding: 10px;
     border-bottom: 1px solid rgb(233, 227, 227);
+}
+.wrapp .block-left .contact .box .information-contact {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .wrapp .block-left .contact .box img {
     width: 60px;
@@ -153,16 +189,17 @@ box-shadow: 0px 0px 0.52px 0px rgba(0,0,0,0.75);
     flex-direction: column;
 }
 .chat{
-height: 79%;
+height: calc(100% - 140px);
 background-image: url(../img/mine.jpg);
-overflow-y: scroll;
+overflow-y: auto;
+overflow-x: hidden;
+padding-bottom:10px ;
 }
 .chat .send{
-    width: 95%;
-    height: 40px;
-    display: flex;
-    margin-top: 20px;
-    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+    margin-right:50px ;
+    
 }
 .chat .data-chat{
     display: flex;
@@ -175,16 +212,20 @@ overflow-y: scroll;
     border-radius: 10px;
 }
 
-
-.chat .send .box-message{
+.chat .send .box-message,.chat .recive .box-message{
+    max-width: 30%;
+    float: right;
+    clear: both;
     display: flex;
     align-items: center;
     height: 100%;
-   padding: 0 60px 0 10px;
+    padding: 5px 60px 5px 10px;
     background-color:#DCF8C6;
-    border-radius: 2px;
+    border-radius: 5px;
     font-size: 18px;
     position: relative;
+    margin-right: 20px;
+    word-break: break-word;
 }
 .chat .send .box-message .ora{
    position: absolute;
@@ -194,22 +235,13 @@ overflow-y: scroll;
     color: rgb(93, 143, 93);
 }
 .chat .recive{
-    width: 95%;
-    height: 40px;
-    display: flex;
-    margin-top: 20px;
+    width: 100%;
     margin-left:30px ;
-    justify-content: flex-start;
 }
 .chat .recive .box-message{
-    height: 100%;
-    display: flex;
-    align-items: center;
-   padding: 0 60px 0 10px;
-    background-color:#f0f0f0;
-    border-radius: 2px;
-    font-size: 18px;
-    position: relative;
+    float: left;
+    background-color: white;
+    margin-top: 10px;
 }
 .chat .recive .box-message .ora{
     position: absolute;
@@ -218,15 +250,15 @@ overflow-y: scroll;
      font-size: 14px;
      color: rgb(93, 143, 93);
  }
-
-
-
 .bar-chat{
-    min-height: 11%;
+    height: 70px;
     background-color: #EAEAEA;
     display: flex;
     align-items: center;
     
+}
+.active{
+    background-color:#EBEBEB;
 }
 .bar-chat .tool-chat{
     width: 100%;
@@ -246,7 +278,12 @@ overflow-y: scroll;
     height: 80%;
   background-color: white;
 }
-
+.display-show{
+    display: block;
+}
+.display-hidden{
+    display: none;
+}
  
 
 
