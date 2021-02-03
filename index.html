@@ -87,7 +87,7 @@
                         <img  :src="contact.img" alt="">
                         <div class="information m_left10">
                             <span class="bold">{{contact.nome}}</span>
-                            <span style="color: #979c9e; margin-top:5px ;">Ultimo accesso oggi alle</span>
+                            <span style="color: #979c9e; margin-top:5px ;">Ultimo accesso oggi alle: {{contact.lastAcces}}</span>
                         </div>
                        
                     </div>
@@ -121,7 +121,7 @@
                 <div class="bar-chat">
                     <div class="tool-chat">
                         <i class="far fa-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" v-model="message" @keyup.enter="addelement" placeholder="Scrivi un messaggio">
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
