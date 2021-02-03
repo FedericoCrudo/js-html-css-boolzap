@@ -12,7 +12,6 @@
     <title>Document</title>
 </head>
 <body>
-    
         <div class="background">
             <div class="green"></div>
         </div>
@@ -46,8 +45,7 @@
                         <div class="search-input">
                             <input type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
-                    </div>
-                    
+                    </div> 
                 </div>
                 <div class="contact">
                     <div v-for="(contact,index) in contacts" @click="checkcontact(index)" class="box" :class="contact.click">
@@ -56,12 +54,8 @@
                             <span>{{contact.nome}}</span>
                             <!-- <span v-if="lastmessages(contact.messages)==true"  style="color: grey; font-size: 16px;" ><i style="color: grey; font-size: 12px;" class="fas fa-check-double m_right_10"></i>{{lastmessage.text}}</span>
                             <span v-else  style="color: grey;" >{{lastmessage.text}}</span> -->
-
                         </div>
-                        
                     </div>
-                  
-                  
                 </div> 
         </div>
         <div class="block-right">
@@ -77,9 +71,7 @@
                     <div class="welcome-footer m_top_50">
                         <div><i class="fas fa-laptop m_right_10"></i>WhatsApp è disponibile per Windows. <a style="color:#1DC25C; font-weight: bold;" href="https://www.whatsapp.com/download" target="_blank">Scaricala qui</a>.</div>
                     </div>
-                    
                 </div>
-                
             </div>
             <div  class="content">
                 <div v-for="contact in contactCheck" class="header-right">
@@ -89,7 +81,6 @@
                             <span class="bold">{{contact.nome}}</span>
                             <span style="color: #979c9e; margin-top:5px ;">Ultimo accesso oggi alle: {{contact.lastAcces}}</span>
                         </div>
-                       
                     </div>
                     <div class="font-aw">
                         <i class="fas fa-search"></i>
@@ -104,19 +95,9 @@
                             <div class="box-message">
                                 <span>{{message.text}}</span>
                                 <span class="ora">{{message.ora}}</span>
-                            </div>
-                                                
+                            </div>                 
                         </div>
                     </div>
-                    
-
-                    <!-- <div class="recive">
-                        <div class="box-message">
-                            <span>adasdasd</span>
-                            <span class="ora">10:26</span>
-                        </div>
-                    </div> -->
-
                 </div>
                 <div class="bar-chat">
                     <div class="tool-chat">
@@ -125,16 +106,9 @@
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
-           
-                
         </div>
     </div>
-    
   </div>  
-    
-
-
-
     <script src="js/vue.js"></script>
 </body>
 </html>

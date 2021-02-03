@@ -142,6 +142,7 @@ var print = new Vue({
     },
     methods:{
             checkcontact(index){
+             
                 this.contacts[this.temp].click="";
                 $(".welcome").addClass("display-hidden");
                 $(".content").addClass("display-show");
@@ -149,6 +150,7 @@ var print = new Vue({
                 this.contacts[index].click="active";
                 this.contactCheck.push(this.contacts[index]);
                  this.temp=index;
+                 console.log(this.contactCheck);
             },
             lastmessages(array){
             this.lastmessage=array[array.length-1];
@@ -168,7 +170,7 @@ var print = new Vue({
                     //risposta automatica
                     setTimeout(()=> {
                         let recivemessage={
-                        "text":this.randomMessage[(getRandom(0,this.randomMessage.length))],
+                        "text":this.randomMessage[(getRandom(0,this.randomMessage.length-1))],
                         "ora":"12:33",
                         "stato":"recive" 
                     }
