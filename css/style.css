@@ -45,7 +45,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    color: #A8A8A9;
+}
+.welcome-footer  a{
+    color:#1DC25C;
 }
 
 .welcome .welcome-information .welcome-img img{
@@ -57,6 +60,11 @@
     flex-direction: column;
     padding:30px 0;
     border-bottom:1px solid #E5E5E6 ;
+}
+.welcome .welcome-information .welcome-text span{
+  color: #737373;
+   font-weight: 200;
+   font-size: 35px;
 }
 .wrapp .block-left{
     width: 30%;
@@ -92,7 +100,8 @@
     display: flex;
     justify-content: space-around;
  }
- .wrapp .block-left .header-left .font-aw i:hover {
+ .wrapp .block-left .header-left .font-aw i:hover,
+ .header-right .font-aw i:hover{
     color: rgb(139, 114, 114);
     transform: scale(1.1);
  }
@@ -157,7 +166,7 @@ box-shadow: 0px 0px 0.52px 0px rgba(0,0,0,0.75);
   background-color: white;
 }
 .wrapp .block-left .contact   {
-   height: calc(100% - 212px);
+   height: calc(100% - 198px);
     overflow-y: scroll;
     padding-bottom: 5px;
 
@@ -165,8 +174,23 @@ box-shadow: 0px 0px 0.52px 0px rgba(0,0,0,0.75);
 }
 .wrapp .block-left .contact .box  {
     display: flex;
-    padding: 10px;
+    padding:  10px;
     border-bottom: 1px solid rgb(233, 227, 227);
+}
+.wrapp .block-left .contact .box .message-information   {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+}
+.wrapp .block-left .contact .box .message-information .new-message  {
+    background-color: #06D755;
+    border-radius: 50%;
+    padding: 4px 0;
+    font-weight: bold;
+    color: white;
+    font-size: 12px;
+  
 }
 .wrapp .block-left .contact .box .information-contact {
     width: 100%;
@@ -223,7 +247,7 @@ padding-bottom:10px ;
     padding: 5px 60px 5px 10px;
     background-color:#DCF8C6;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 15px;
     position: relative;
     margin-right: 20px;
     margin-top:5px ;
@@ -268,9 +292,10 @@ padding-bottom:10px ;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 25px;
-    color: #B1B1B1;
+    font-size: 20px;
+   color: #B4B4B4;
 }
+
 .bar-chat .tool-chat input {
     outline-style: none;
     box-shadow: none;

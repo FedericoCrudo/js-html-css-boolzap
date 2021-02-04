@@ -27,7 +27,14 @@
       font-size: 18px;
       
     }
-   
+    .font_size_16{
+      font-size: 16px;
+    }
+    .font_size_12{
+      font-size: 12px;
+      
+    }
+    
     .font_size_25{
       font-size: 25px;
       
@@ -68,8 +75,11 @@
       color: #091D3A;
     }
     .text_color-grey{
-      color: #77797D;
+      color: grey;
     } 
+    .no_text_color{
+      color: none;
+    }
     .bg_color_container{
      background-color: #f3eaea;
      

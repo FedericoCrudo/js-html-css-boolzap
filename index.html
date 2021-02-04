@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link id="favicon" rel="shortcut icon" href="https://web.whatsapp.com/img/favicon/1x/favicon.png" type="image/png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/framework.css">
-    <title>Document</title>
+    <title>WhatsApp Web</title>
 </head>
 <body>
         <div class="background">
@@ -19,8 +19,7 @@
             <div class="block-left">
                 <div class="header-left">
                     <div class="logo-name">
-                        <img class="m_left15" src="img/avatar_io.jpg" alt="">
-                     
+                        <img class="m_left15" src="img/avatar_io.jpg" alt=""> 
                     </div>
                     <div class="font-aw">
                         <i class="fas fa-circle-notch"></i>
@@ -43,33 +42,38 @@
                             <i  class="fas fa-search"></i>
                         </div>
                         <div class="search-input">
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" v-model="search" @keyup="searchContact" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div> 
                 </div>
-                <div class="contact">
-                    <div v-for="(contact,index) in contacts" @click="checkcontact(index)" class="box" :class="contact.click">
+                <div class="contact text_color-grey">
+                    <div v-for="(contact,index) in contacts" v-if="contact.visibility ==true" @click="checkcontact(contact.index,index)" class="box" :class="contact.click">
                         <img class="m_right_15" :src="contact.img" alt="">
-                        <div  class="information-contact">
-                            <span>{{contact.nome}}</span>
-                            <!-- <span v-if="lastmessages(contact.messages)==true"  style="color: grey; font-size: 16px;" ><i style="color: grey; font-size: 12px;" class="fas fa-check-double m_right_10"></i>{{lastmessage.text}}</span>
-                            <span v-else  style="color: grey;" >{{lastmessage.text}}</span> -->
+                        <div  class="information-contact ">
+                            <span class="ms_text_black bold">{{contact.nome}}</span>
+                            <span class="font_size_16" v-if="contact.lastmessage.stato=='send'" ><i   class="fas fa-check-double font_size_12 m_right_10"></i>{{contact.lastmessage.text}}</span>
+                            <span v-else   >{{contact.lastmessage.text}}</span>
                         </div>
+                        <div class="message-information">
+                            <span class="font_size_12" >{{contact.lastmessage.ora}}</span>
+                            <span class="new-message text-center" v-if="contact.unready>0">{{contact.unready}}</span>
+                        </div>
+                        
                     </div>
                 </div> 
         </div>
         <div class="block-right">
             <div class="welcome">
-                <div style="color: #A8A8A9;"class="welcome-information">
+                <div class="welcome-information">
                     <div class="welcome-img">
                         <img src="img/whatsapp_welcome.jpg" >
                     </div>
                     <div  class="welcome-text">
-                        <span style="color: #737373; font-weight: 200;" class="font_size_35">Mantieni il telefono connesso</span>
+                        <span>Mantieni il telefono connesso</span>
                         <div class="text-center m_top_10" >WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</div>
                     </div>
                     <div class="welcome-footer m_top_50">
-                        <div><i class="fas fa-laptop m_right_10"></i>WhatsApp è disponibile per Windows. <a style="color:#1DC25C; font-weight: bold;" href="https://www.whatsapp.com/download" target="_blank">Scaricala qui</a>.</div>
+                        <div><i class="fas fa-laptop m_right_10"></i>WhatsApp è disponibile per Windows. <a  class="bold" href="https://www.whatsapp.com/download" target="_blank">Scaricala qui</a></div>
                     </div>
                 </div>
             </div>
@@ -79,7 +83,7 @@
                         <img  :src="contact.img" alt="">
                         <div class="information m_left10">
                             <span class="bold">{{contact.nome}}</span>
-                            <span style="color: #979c9e; margin-top:5px ;">Ultimo accesso oggi alle: {{contact.lastAcces}}</span>
+                            <span style="color: #979c9e;">Ultimo accesso oggi alle: {{contact.lastAcces}}</span>
                         </div>
                     </div>
                     <div class="font-aw">
@@ -89,7 +93,7 @@
                     </div>
                 </div>
                 <div v-for="contact in contactCheck"  class="chat">
-                    <div class="data-chat"><span>{{contact.data}}</span></div>
+                    <div v-for="contact in contactCheck" class="data-chat"><span>{{contact.data}}</span></div>
                     <div  v-for="message in contact.messages">
                         <div :class="message.stato">
                             <div class="box-message">
@@ -102,8 +106,10 @@
                 <div class="bar-chat">
                     <div class="tool-chat">
                         <i class="far fa-smile"></i>
+                        <i class="fas fa-paperclip"></i>
                         <input type="text" v-model="message" @keyup.enter="addelement" placeholder="Scrivi un messaggio">
-                        <i class="fas fa-microphone"></i>
+                        <i v-if="message.length==0" class="fas fa-microphone "></i>
+                        <i v-else class="far fa-paper-plane "></i>
                     </div>
                 </div>
         </div>
