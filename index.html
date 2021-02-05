@@ -16,18 +16,22 @@
         <div class="background">
             <div class="green"></div>
         </div>
+        <!-- contenitore geenerale -->
         <div class="wrapp">
+            <!-- blocco di sinitra -->
             <div class="block-left">
                 <div class="header-left">
                     <div class="logo-name">
                         <img class="m_left15" src="img/avatar_io.jpg" alt=""> 
                     </div>
+                    <!-- icon -->
                     <div class="font-aw">
                         <i class="fas fa-circle-notch"></i>
                         <i class="fas fa-comment-alt"></i>
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
+                <!-- sezione notifica -->
                 <div class="notify">
                     <div class="icon m_right_25">
                         <i style="color: #8EDAFC;" class="fas fa-bell-slash"></i>
@@ -37,6 +41,7 @@
                         <span class="link">Attiva notifiche desktop</span>
                     </div>
                 </div>
+                <!-- sezione ricerca -->
                 <div class="search">
                     <div class="content-search">
                         <div class="search-icon">
@@ -47,6 +52,7 @@
                         </div>
                     </div> 
                 </div>
+                <!-- sezione contatti -->
                 <div class="contact text_color-grey">
                     <div v-for="(contact,index) in contacts" v-if="contact.visibility ==true" @click="checkcontact(contact.index,index)" class="box" :class="contact.click">
                         <img class="m_right_15" :src="contact.img" alt="">
@@ -63,7 +69,9 @@
                     </div>
                 </div> 
         </div>
+        <!-- blocco di destra -->
         <div class="block-right">
+            <!-- pagina principale -->
             <div class="welcome">
                 <div class="welcome-information">
                     <div class="welcome-img">
@@ -80,6 +88,7 @@
             </div>
             <div  class="content">
                 <div v-for="contact in contactCheck" class="header-right">
+                        <!-- intestazione -->
                     <div class="logo-name">
                         <img  :src="contact.img" alt="">
                         <div class="information m_left10">
@@ -88,12 +97,14 @@
                             <span v-else style="color: #979c9e;"> {{contact.lastAcces}}</span>
                         </div>
                     </div>
+                    <!-- icon -->
                     <div class="font-aw">
                         <i class="fas fa-search"></i>
                         <i class="fas fa-paperclip"></i>
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
+                <!-- sezione chat -->
                 <div v-for="contact in contactCheck"  class="chat">
                     <div v-for="contact in contactCheck" class="data-chat">
                         <span>{{contact.data}}</span>
@@ -107,6 +118,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- sezione chat -->
                 <div class="bar-chat">
                     <div class="tool-chat">
                         <i class="far fa-smile"></i>
