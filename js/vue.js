@@ -1,4 +1,3 @@
-
 var print = new Vue({
     el: '.wrapp',
     data: {
@@ -30,12 +29,12 @@ var print = new Vue({
              "click":"",
              "unready":0,
              "visibility":true,
-             "lastmessage":{"text":"Ciao2444ultimo ", "ora":"12:33","stato":"send"},
+             "lastmessage":{"text":"Ciao2444ultimo ", "ora":"18:33","stato":"send"},
              "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
              "img":"img/avatar_2.jpg",
               "data":"20 Febbraio 2021",
              "messages":[ { "text":"Ciao Michele","ora":"12:33","stato":"send"}, {"text":"Ciao ","ora":"12:33","stato":"recive"},
-                {"text":"Ciao2444ultimo ","ora":"12:33","stato":"send"},
+                {"text":"Ciao2444ultimo ","ora":"18:33","stato":"send"},
              ],
          },
         {
@@ -44,12 +43,12 @@ var print = new Vue({
             "index":2,
             "unready":0,
             "visibility":true,
-            "lastmessage":{"text":"Tutto bene? ","ora":"12:33","stato":"recive"},
+            "lastmessage":{"text":"Tutto bene? ","ora":"11:33","stato":"recive"},
             "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
             "img":"img/avatar_3.jpg",
              "data":"20 Febbraio 2021",
             "messages":[{"text":"Ciao Federico","ora":"12:33","stato":"send"},{"text":"Ciao ","ora":"12:33","stato":"recive"},
-                {"text":"Tutto bene? ","ora":"12:33","stato":"recive"},
+                {"text":"Tutto bene? ","ora":"11:33","stato":"recive"},
             ],
         },
         {
@@ -58,12 +57,12 @@ var print = new Vue({
             "index":3,
             "unready":0,
             "visibility":true,
-            "lastmessage":{"text":"Tutto bene? ","ora":"12:33","stato":"send"},
+            "lastmessage":{"text":"Tutto bene? ","ora":"09:33","stato":"send"},
             "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
             "img":"img/avatar_4.jpg",
              "data":"10 Gennaio 2021",
             "messages":[{"text":"Ciao Lorenzo","ora":"12:33","stato":"send"},{"text":"Ciao Federico ","ora":"12:33","stato":"recive"},
-                {"text":"Tutto bene? ","ora":"12:33","stato":"send"},
+                {"text":"Tutto bene? ","ora":"09:33","stato":"send"},
             ],
         },
         {
@@ -75,7 +74,7 @@ var print = new Vue({
             "lastmessage":{"text":"Tutto bene? ", "ora":"12:33","stato":"send"},
             "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
             "img":"img/avatar_5.jpg",
-             "data":"10 Gennaio 2021",
+             "data":"18 Gennaio 2021",
             "messages":[{"text":"Ciao Nicola","ora":"12:33","stato":"send"},{"text":"Ciao Federico ","ora":"12:33","stato":"recive"},
                 {"text":"Tutto bene? ","ora":"12:33","stato":"send" },{"text":"Tutto bene? ","ora":"12:33","stato":"send"},
             ],
@@ -97,7 +96,7 @@ var print = new Vue({
             addelement(){
                 const strcutmessage={
                 "text":this.message,
-                "ora":"12:33",
+                "ora":moment().format('h:mm'),
                 "stato":"send" 
                 }
                 if(this.message!=0){
@@ -105,22 +104,28 @@ var print = new Vue({
                     //aggiungiamo il messaggio all'array principale
                     this.pushContact(strcutmessage);
                     //risposta automatica
+                    this.contactCheck[0].lastAcces="sta scrivendo...";
                     setTimeout(()=> {
                         let recivemessage={
                         "text":this.randomMessage[(getRandom(0,this.randomMessage.length-1))],
-                        "ora":"13:44",
+                        "ora":moment().format('h:mm'),
                         "stato":"recive" 
                     }
+                   
                     //controllo per evitare che i messaggi vengano stampanti in chat diverse
                     if(this.count2==this.contactCheck[0].index){
                         this.pushChat(recivemessage);
                         this.pushContact(recivemessage);
                     }else{
                         this.pushContactUnready(recivemessage);
-                    }  
+                        
+                    } 
+                    this.contactCheck[0].lastAcces="Ultimo accesso oggi alle "+moment().format('h:mm') ; 
                     },3000);
+                  
                     this.count2=this.contactCheck[0].index;
                     this.messageCount=0;        //puliamo il contatore affinche
+                    
                 }
              this.message="";  
             },
@@ -135,6 +140,8 @@ var print = new Vue({
                 if(element.index==this.checkcontact.index){
                     element.messages.push(message);
                     element.lastmessage=message;
+                    
+                    
                 }
             });
           },
@@ -145,6 +152,8 @@ var print = new Vue({
                 element.messages.push(message);
                 element.unready=this.messageCount;
                 element.lastmessage=message;
+                element.lastAcces="Ultimo accesso oggi alle "+moment().format('h:mm') ; 
+                
                 }
             });   
         },
