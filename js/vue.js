@@ -93,6 +93,11 @@ var print = new Vue({
                 this.contacts[indexelement].unready="";//svuotiamo i messaggi non letti
                 this.message="";//puliamo l'input al cambio della conversazione
             },
+            deleteElement(index){
+                console.log(this.contacts);
+                this.contactCheck[0].messages.splice(index,1);
+                console.log(this.contacts);
+            },
             addelement(){
                 const strcutmessage={
                 "text":this.message,

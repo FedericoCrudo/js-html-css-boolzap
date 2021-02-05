@@ -109,11 +109,17 @@
                     <div v-for="contact in contactCheck" class="data-chat">
                         <span>{{contact.data}}</span>
                     </div>
-                    <div  v-for="message in contact.messages">
+                    <div  v-for="(message,index) in contact.messages">
                         <div :class="message.stato">
                             <div class="box-message">
                                 <span>{{message.text}}</span>
                                 <span class="ora">{{message.ora}}</span>
+                                <div v-if="message.stato=='send'" class="option">
+                                    <i class="fas fa-chevron-down"></i>
+                                    <ul class="list-option">
+                                        <li @click="deleteElement(index)">Elimina Messaggio</li>
+                                    </ul>
+                                </div>
                             </div>                 
                         </div>
                     </div>
