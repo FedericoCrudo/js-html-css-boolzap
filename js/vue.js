@@ -17,7 +17,7 @@ var print = new Vue({
              "unready":0,
              "visibility":true,
               "lastmessage": {"text":"Ciaoultimo ","ora":"12:33","stato":"send"} ,  
-             "lastAcces":getRandom(1,24)+":"+getRandom(10,59),
+             "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
              "img":"img/avatar_1.jpg",
               "data":"2 Febbraio 2021",
              "messages":[{"text":"Ciao Michele", "ora":"12:33", "stato":"send"}, {"text":"Ciao ","ora":"12:33","stato":"recive"},
@@ -31,7 +31,7 @@ var print = new Vue({
              "unready":0,
              "visibility":true,
              "lastmessage":{"text":"Ciao2444ultimo ", "ora":"12:33","stato":"send"},
-             "lastAcces":getRandom(1,24)+":"+getRandom(0,59),
+             "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
              "img":"img/avatar_2.jpg",
               "data":"20 Febbraio 2021",
              "messages":[ { "text":"Ciao Michele","ora":"12:33","stato":"send"}, {"text":"Ciao ","ora":"12:33","stato":"recive"},
@@ -45,7 +45,7 @@ var print = new Vue({
             "unready":0,
             "visibility":true,
             "lastmessage":{"text":"Tutto bene? ","ora":"12:33","stato":"recive"},
-            "lastAcces":getRandom(1,24)+":"+getRandom(0,59),
+            "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
             "img":"img/avatar_3.jpg",
              "data":"20 Febbraio 2021",
             "messages":[{"text":"Ciao Federico","ora":"12:33","stato":"send"},{"text":"Ciao ","ora":"12:33","stato":"recive"},
@@ -59,7 +59,7 @@ var print = new Vue({
             "unready":0,
             "visibility":true,
             "lastmessage":{"text":"Tutto bene? ","ora":"12:33","stato":"send"},
-            "lastAcces":getRandom(1,24)+":"+getRandom(0,59),
+            "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
             "img":"img/avatar_4.jpg",
              "data":"10 Gennaio 2021",
             "messages":[{"text":"Ciao Lorenzo","ora":"12:33","stato":"send"},{"text":"Ciao Federico ","ora":"12:33","stato":"recive"},
@@ -73,7 +73,7 @@ var print = new Vue({
             "unready":0,
             "visibility":true,
             "lastmessage":{"text":"Tutto bene? ", "ora":"12:33","stato":"send"},
-            "lastAcces":getRandom(1,24)+":"+getRandom(0,59),
+            "lastAcces":"Ultimo accesso oggi alle "+getRandom(1,24)+":"+getRandom(10,59),
             "img":"img/avatar_5.jpg",
              "data":"10 Gennaio 2021",
             "messages":[{"text":"Ciao Nicola","ora":"12:33","stato":"send"},{"text":"Ciao Federico ","ora":"12:33","stato":"recive"},
@@ -108,7 +108,7 @@ var print = new Vue({
                     setTimeout(()=> {
                         let recivemessage={
                         "text":this.randomMessage[(getRandom(0,this.randomMessage.length-1))],
-                        "ora":"12:33",
+                        "ora":"13:44",
                         "stato":"recive" 
                     }
                     //controllo per evitare che i messaggi vengano stampanti in chat diverse
